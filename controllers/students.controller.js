@@ -14,13 +14,15 @@ module.exports.create = function(req,res) {
 
 module.exports.postCreate = function(req,res) {
 	var newStudent = new Students(req.body);
+	newStudent.avatar = req.file.path.split('\\').slice(1).join('\\');
+	console.log(newStudent);
 	newStudent.save()
     .then(item => {
-      res.send("item saved to database");
+      res.redirect('/student');
     })
     .catch(err => {
-      res.status(400).send("unable to save to database");
+      res.send("unable to save to database");
+      return;
     });
-	res.redirect('/student');
 }
 

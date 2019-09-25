@@ -13,19 +13,27 @@ block content
     input#name.form-control(name="name", type="text", value=values ? values.name : "")
 
     .form-group
-    label(for="age") Age
+    label(for="namej") 名前
+    input#name.form-control(name="namej", type="text", value=values ? values.namej : "")
+
+    .form-group
+    label(for="age") 年齢
     input#age.form-control(name="age", type="number", value=values ? values.age : "")
 
     .form-group
-    label(for="country") Country
+    label(for="country") 国籍
     input#country.form-control(name="country", type="text", value=values ? values.country : "")
 
     .form-group
-    label(for="email") Email
+    label(for="jlpt") JLPT
+    input#jlpt.form-control(name="jlpt", type="text", value=values ? values.jlpt : "")
+
+    .form-group
+    label(for="email") Eメール
     input#email.form-control(name="email", type="text", value=values ? values.email : "")
 
     .form-group
-    label(for="avatar") Avatar
+    label(for="avatar") 写真
     input#avatar.form-control-file(name="avatar", type="file")
     br
     button.btn.btn-primary Create

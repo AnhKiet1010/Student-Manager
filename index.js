@@ -7,11 +7,15 @@ var mongoose = require('mongoose');
 var morgan = require('morgan')
 var bodyParser = require('body-parser');
 
+// validate
+var validate = require('./validate/student.validate');
+
 /* Content */
 var app = express();
 
 var port = process.env.PORT || 3000;
 
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true ,useUnifiedTopology: true});
 
 // Middlewares
