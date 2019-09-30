@@ -1,24 +1,31 @@
 html
 	head
-		title Student Manager
-		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
-		link(rel="stylesheet", href="/styles/custom.css")
-		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		title 国際アニメーション専門学校ITコース
+		link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+		script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+		script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+		link(rel="stylesheet" href="/styles/custom.css")
+		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css")
+		meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
 	body
 		nav.navbar.navbar-expand-lg.navbar-light.bg-light
-			a.navbar-brand(href="/")
-				img(src="/images/logo.png" width="150px")
-			.collapse.navbar-collapse
+			a.navbar-brand(href='/')
+				img(src='/images/logo.png' width='170px')
+			button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			#navbarSupportedContent.collapse.navbar-collapse
 				ul.navbar-nav.mr-auto
-					li.nav-item.active
-						a.nav-link(href='/') Home
-					li.nav-item.active
-						a.nav-link(href='/student') Student
-					li.nav-item.active
-						a.nav-link(href='#') Users
-				form.form-inline.my-2.my-lg-0
-					input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-					button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+					li.nav-item
+						a.nav-link(href='/') ホーム
+					li.nav-item
+						a.nav-link(href='/student') 学生
+					li.nav-item
+						a.nav-link(href='/teacher') 教師
+				form.form-inline.my-2.my-lg-0(action='/student/search' method='get')
+					input.form-control.mr-sm-2(type='search' aria-label='Search' name='q')
+					button.btn.btn-outline-success.my-2.my-sm-0(type='submit') 検索
+
 
 		.container.pt-5
-			block content
+				block content

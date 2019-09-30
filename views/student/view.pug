@@ -1,0 +1,26 @@
+extends ../layout/common.pug
+
+block content
+    p.text-align-center
+        img(src= student.avatar, alt="avatar")
+    table.table
+        tr
+            th(col-span=2) 学生の情報
+        tr
+            td Name
+            td #{student.name}
+        tr
+            td 名前
+            td #{student.namej}
+        tr
+            td 国籍
+            td #{student.country}
+        tr
+            td 年齢
+            td #{student.age}
+        tr
+            td JLPT
+            td #{student.jlpt}
+        tr
+            td Eメール
+            td= student.email

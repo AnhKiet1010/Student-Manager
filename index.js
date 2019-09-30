@@ -7,9 +7,6 @@ var mongoose = require('mongoose');
 var morgan = require('morgan')
 var bodyParser = require('body-parser');
 
-// validate
-var validate = require('./validate/student.validate');
-
 /* Content */
 var app = express();
 
@@ -32,6 +29,7 @@ app.set('views', './views');
 
 // Routes
 var studentRoute = require('./routes/student.route');
+var teacherRoute = require('./routes/teacher.route');
 
 app.get('/', function(req, res) {
   res.render('index', {
@@ -40,6 +38,7 @@ app.get('/', function(req, res) {
 });
 
 app.use('/student' , studentRoute);
+app.use('/teacher', teacherRoute);
 
 
 

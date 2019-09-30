@@ -6,18 +6,18 @@ block content
 			h1 Students List
 		.col-auto
 			button.btn.btn-outline-success.my-2.my-sm-0
-				a(href="./student/create") Create
+				a(href="/student/create") Create
 	br
 	.row
 		each student in students
 			.col-sm-6.col-md-4.col-lg-3
-				.card(style="width: 14em;").mb-3
-					if student.avatar
+				.card(style="width: 15em;").mb-3
+					if (student.avatar !== "")
 						img.card-img-top(src= student.avatar height="240px")
 					else
 						img.card-img-top(src="./images/avatar.png" height="240px")
 					.card-body
-						h6.card-title Name : #{student.name}
-						p.card-text Country : #{student.country}
-						p.card-text Age : #{student.age}
-						a.btn.btn-primary(href='/student/detail/' + student.id) See more
+						h6.card-title 名前 : #{student.namej}
+						p.card-text 国籍 : #{student.country}
+						p.card-text 年齢 : #{student.age}
+						a.btn.btn-primary(href='/student/' + student.id) 詳しく
