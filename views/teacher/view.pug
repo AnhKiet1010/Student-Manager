@@ -1,11 +1,11 @@
 extends ../layout/common.pug
 
 block content
-    p.text-align-center
+    p.text-center
         img(src= teacher.avatar, alt="avatar")
     table.table
         tr
-            th(col-span=2) 先生の情報
+            th(colspan=2).text-center 先生の情報
         tr
             td Name
             td #{teacher.name}
