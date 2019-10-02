@@ -39,8 +39,10 @@ app.get('/', function(req, res) {
 
 app.use('/student' , studentRoute);
 app.use('/teacher', teacherRoute);
-
-
+app.use('/login', function(req,res) {
+  res.render('authentication/login');
+});
+app.use('/teacher', teacherRoute);
 
 
 

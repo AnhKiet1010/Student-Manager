@@ -1,0 +1,9 @@
+extends ../layout/common.pug
+
+block content
+    form.box(action='index.html', method='post')
+        h1 ログイン
+        input(type='text', name='account', placeholder='ユーザー名')
+        p.text-muted ※大文字小文字に注意して入力してください
+        input(type='password', name='password', placeholder='パスワード')
+        input(type='submit', name='', value='ログイン')

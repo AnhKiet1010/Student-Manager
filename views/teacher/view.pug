@@ -1,0 +1,23 @@
+extends ../layout/common.pug
+
+block content
+    p.text-align-center
+        img(src= teacher.avatar, alt="avatar")
+    table.table
+        tr
+            th(col-span=2) 先生の情報
+        tr
+            td Name
+            td #{teacher.name}
+        tr
+            td 名前
+            td #{teacher.namej}
+        tr
+            td 年齢
+            td #{teacher.age}
+        tr
+            td コース
+            td #{teacher.couse}
+        tr
+            td Eメール
+            td= teacher.email

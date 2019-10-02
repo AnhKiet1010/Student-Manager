@@ -13,6 +13,8 @@ router.get('/', controller.teacher);
 
 router.get('/create' , controller.create);
 
+router.get('/:id' , controller.view);
+
 router.post('/create' ,upload.single('avatar'),validate.postCreate, controller.postCreate);
 
 module.exports = router;

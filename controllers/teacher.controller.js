@@ -14,7 +14,7 @@ module.exports.create = function(req,res) {
 
 module.exports.postCreate = function(req,res) {
 	var newTeacher = new Teachers(req.body);
-	newTeacher.avatar = req.file.path.split('\\').slice(1).join('\\');
+	newTeacher.avatar = '/' + req.file.path.split('\\').slice(1).join('\\');
 	newTeacher.save()
     .then(item => {
       res.redirect('/teacher');
@@ -23,4 +23,12 @@ module.exports.postCreate = function(req,res) {
       res.send("unable to save to database");
       return;
     });
+}
+
+module.exports.view = async function(req,res) {
+	var id = req.params.id;
+	var teacher = await Teachers.findById(id);
+	res.render('teacher/view',{
+		teacher
+	})
 }
