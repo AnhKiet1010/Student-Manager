@@ -6,6 +6,7 @@ var pug = require('pug');
 var mongoose = require('mongoose');
 var morgan = require('morgan')
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 /* Content */
 var app = express();
@@ -16,6 +17,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true ,useUnifiedTopology: true});
 
 // Middlewares
+var authMiddleware = require('./middlewares/auth.middleware');
 /* Set up morgan */
 app.use(morgan('dev'));
 /* Set up static file */
@@ -23,6 +25,7 @@ app.use(express.static('public'));
 /* Set up bodyparser */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 /* Set up view pug */
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -30,19 +33,18 @@ app.set('views', './views');
 // Routes
 var studentRoute = require('./routes/student.route');
 var teacherRoute = require('./routes/teacher.route');
+var auth = require('./routes/admin.route');
 
 app.get('/', function(req, res) {
   res.render('index', {
-    name: 'Anh Kiet'
+    name: 'Anh Kiet',
+    cookie: req.cookies
   });
 });
 
-app.use('/student' , studentRoute);
-app.use('/teacher', teacherRoute);
-app.use('/login', function(req,res) {
-  res.render('authentication/login');
-});
-app.use('/teacher', teacherRoute);
+app.use('/student' ,authMiddleware.requireAuth,studentRoute);
+app.use('/teacher',authMiddleware.requireAuth, teacherRoute);
+app.use('/admin', auth);
 
 
 

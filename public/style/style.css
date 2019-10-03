@@ -1,21 +1,23 @@
 a {
     color: #34495e;
 }
-
+/* body {
+	background-image: url('../images/background.jpg');
+	background-size: cover;
+	background-position: top;
+	background-repeat: no-repeat;
+} */
 /* Design for Login page */
 .box {
-	width: 500px;
-	padding: 40px;
+	padding: 20px;
 	top: 50%;
 	left: 50%;
-    position: absolute;
     background-color: #ecf0f1;
-	transform: translate(-50%,-50%);
 	text-align: center;
 	border-radius: 24px;
 }
 .box > p {
-    font-size: 14px;
+    font-size: 13px;
 }
 .box h1{
 	color: #34495e;

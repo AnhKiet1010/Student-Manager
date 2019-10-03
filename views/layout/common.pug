@@ -23,12 +23,15 @@ html
 					li.nav-item
 						a.nav-link(href='/teacher') 教師
 					li.nav-item
-						a.nav-link(href='/login') ログイン
+						a.nav-link(href='/admin') ログイン
 					li.nav-item
-						a.nav-link(href='/signup') 登録
+						a.nav-link(href='/admin/signup') 登録
 				form.form-inline.my-2.my-lg-0(action='/student/search' method='get')
 					input.form-control.mr-sm-2(type='search' aria-label='Search' name='q')
 					button.btn.btn-outline-success.my-2.my-sm-0(type='submit') 検索
+				if(cookie)
+					p.my-lg-0.ml-3
+						img(src="/images/favicon.svg", alt="",width='50px')
 
 
 		.container.pt-5

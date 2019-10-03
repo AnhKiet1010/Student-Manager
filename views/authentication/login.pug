@@ -1,9 +1,13 @@
 extends ../layout/common.pug
 
 block content
-    form.box(action='index.html', method='post')
+    a(href='/admin/signup').btn.btn-info.mb-3 会員登録
+    if errors
+        each error in errors
+            .alert.alert-danger= error
+    form.box(action='/admin', method='post')
         h1 ログイン
-        input(type='text', name='account', placeholder='ユーザー名')
+        input(type='text', name='email', placeholder='メールアドレス', value=values ? values.email : "")
         p.text-muted ※大文字小文字に注意して入力してください
-        input(type='password', name='password', placeholder='パスワード')
+        input(type='password', name='password', placeholder='パスワード' ,value=values ? values.password : "")
         input(type='submit', name='', value='ログイン')

@@ -1,0 +1,18 @@
+extends ../layout/common.pug
+
+block content
+    a(href='/admin').btn.btn-info.mb-3 戻る
+    br
+    if errors
+        each error in errors
+            .alert.alert-danger= error
+    form.box(action='/admin/signup', method='post')
+        h1 登録フォーム
+        input(type='text', name='username', placeholder='ユーザー名',value=values ? values.username : "")
+        p.text-muted ※大文字小文字に注意して入力してください
+        input(type='text', name='email', placeholder='メールアドレス', value=values ? values.email : "")
+        p.text-muted ※半角英数記号
+        input(type='password', name='password', placeholder='パスワード', value=values ? values.password : "")
+        p.text-muted ※大文字小文字に注意して入力してください
+        input(type='password', name='repassword', placeholder='パスワードもう一回')
+        input(type='submit', value='登録')
